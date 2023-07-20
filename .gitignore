@@ -1,0 +1,7 @@
+# Project exclude paths
+/target/
+/HELP.md
+/mvnw
+/mvnw.cmd
+/.mvn/
+/.idea/
