@@ -11,96 +11,107 @@ import java.util.List;
 public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int EventID;
-    @ManyToOne
-    @JoinColumn(name = "VenueID")
-    private Venue Venue;
+    private int eventID;
 
     @ManyToOne
-    @JoinColumn(name = "EvenTypeID")
-    private Event EvenType;
+    @JoinColumn(name = "venueID")
+    private Venue venue;
+
+    @ManyToOne
+    @JoinColumn(name = "eventTypeID")
+    private EventType eventType;
 
     @OneToMany(mappedBy = "Event",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<TicketCategory> TicketCategoryList;
 
-    @Column(name = "EventDescription")
-    private String EventDescription;
+    @Column(name = "eventDescription")
+    private String eventDescription;
 
-    @Column(name = "EventName")
-    private String EventName;
+    @Column(name = "eventName")
+    private String eventName;
 
-    @Column(name = "StartDate")
-    private LocalDateTime StartDate;
+    @Column(name = "startDate")
+    private LocalDateTime startDate;
 
-    @Column(name = "EndDate")
-    private LocalDateTime EndDate;
+    @Column(name = "endDate")
+    private LocalDateTime endDate;
+
     public int getEventID() {
-        return EventID;
+        return eventID;
     }
 
     public void setEventID(int eventID) {
-        EventID = eventID;
+        this.eventID = eventID;
     }
 
-    public Venue getVenueID() {
-        return Venue;
+    public Venue getVenue() {
+        return venue;
     }
 
-    public void setVenueID(Venue venueID) {
-        Venue = venueID;
+    public void setVenue(Venue venue) {
+        this.venue = venue;
     }
 
-    public Event getEvenTypeID() {
-        return EvenType;
+    public EventType getEventType() {
+        return eventType;
     }
 
-    public void setEvenTypeID(Event evenTypeID) {
-        EvenType = evenTypeID;
+    public void setEventType(EventType eventType) {
+        this.eventType = eventType;
+    }
+
+    public List<TicketCategory> getTicketCategoryList() {
+        return TicketCategoryList;
+    }
+
+    public void setTicketCategoryList(List<TicketCategory> ticketCategoryList) {
+        TicketCategoryList = ticketCategoryList;
     }
 
     public String getEventDescription() {
-        return EventDescription;
+        return eventDescription;
     }
 
     public void setEventDescription(String eventDescription) {
-        EventDescription = eventDescription;
+        this.eventDescription = eventDescription;
     }
 
     public String getEventName() {
-        return EventName;
+        return eventName;
     }
 
-    public void setEventName(String EventName) {
-        this.EventName = EventName;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public LocalDateTime getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
     public void setStartDate(LocalDateTime startDate) {
-        StartDate = startDate;
+        this.startDate = startDate;
     }
 
     public LocalDateTime getEndDate() {
-        return EndDate;
+        return endDate;
     }
 
-    public void setEndDate(LocalDateTime EndDate) {
-        this.EndDate = EndDate;
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
+    }
+
+    public Event(int eventID, Venue venue, EventType eventType, List<TicketCategory> ticketCategoryList, String eventDescription, String eventName, LocalDateTime startDate, LocalDateTime endDate) {
+        this.eventID = eventID;
+        this.venue = venue;
+        this.eventType = eventType;
+        TicketCategoryList = ticketCategoryList;
+        this.eventDescription = eventDescription;
+        this.eventName = eventName;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public Event(){
 
     }
-    public Event(int eventID, Venue venueID, Event evenTypeID, String eventDescription, String eventName, LocalDateTime startDate, LocalDateTime endDate) {
-        EventID = eventID;
-        Venue = venueID;
-        EvenType = evenTypeID;
-        EventDescription = eventDescription;
-        EventName = eventName;
-        StartDate = startDate;
-        EndDate = endDate;
-    }
-
 }

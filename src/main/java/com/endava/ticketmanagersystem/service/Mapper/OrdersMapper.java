@@ -1,5 +1,2 @@
-package com.endava.ticketmanagersystem.service.Mapper;
-
-public class OrdersMapper {
-
+package com.endava.ticketmanagersystem.service.Mapper;public class OrdersMapper {
 }
