@@ -2,8 +2,13 @@ package com.endava.ticketmanagersystem.repository;
 
 import com.endava.ticketmanagersystem.model.Orders;
 import org.springframework.data.jpa.repository.JpaRepository;
-/*
-public interface OrdersRepository extends JpaRepository<Orders,Long>{
-    public Orders findByNumberOfTickets(int NumberOfTickets);
+import org.springframework.stereotype.Repository;
 
-}*/
+import java.util.List;
+
+@Repository
+public interface OrdersRepository extends JpaRepository<Orders,Integer>{
+    Orders findByNumberOfTickets(int numberOfTickets);
+
+    List<Orders> findAll();
+}
