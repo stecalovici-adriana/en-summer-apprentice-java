@@ -9,57 +9,57 @@ import java.time.LocalDateTime;
 public class Venue {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int VenueID;
+    private int venueID;
 
-    @Column(name = "Location")
-    private String Location;
+    @Column(name = "location")
+    private String location;
 
-    @Column(name = "Type")
-    private String Type;
+    @Column(name = "type")
+    private String type;
 
-    @Column(name = "Capacity")
-    private int Capacity;
+    @Column(name = "capacity")
+    private int capacity;
 
     public int getVenueID() {
-        return VenueID;
+        return venueID;
     }
 
     public void setVenueID(int venueID) {
-        VenueID = venueID;
+        this.venueID = venueID;
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
     public void setLocation(String location) {
-        Location = location;
+        this.location = location;
     }
 
     public String getType() {
-        return Type;
+        return type;
     }
 
     public void setType(String type) {
-        Type = type;
+        this.type = type;
     }
 
     public int getCapacity() {
-        return Capacity;
+        return capacity;
     }
 
     public void setCapacity(int capacity) {
-        Capacity = capacity;
-    }
-
-    public Venue(int venueID, String location, String type, int capacity) {
-        VenueID = venueID;
-        Location = location;
-        Type = type;
-        Capacity = capacity;
+        this.capacity = capacity;
     }
 
     public Venue(){
 
+    }
+
+    public Venue(int venueID, String location, String type, int capacity) {
+        this.venueID = venueID;
+        this.location = location;
+        this.type = type;
+        this.capacity = capacity;
     }
 }

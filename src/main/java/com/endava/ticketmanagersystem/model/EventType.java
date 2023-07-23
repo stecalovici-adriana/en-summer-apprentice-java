@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 public class EventType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int EventTypeID;
+    private int eventTypeID;
 
-    @Column(name = "EventTypeName")
-    private String EventTypeName;
+    @Column(name = "eventTypeName")
+    private String eventTypeName;
 
     public EventType(int eventTypeID, String eventTypeName) {
-        EventTypeID = eventTypeID;
-        EventTypeName = eventTypeName;
+        this.eventTypeID = eventTypeID;
+        this.eventTypeName = eventTypeName;
     }
 
     public EventType(){
@@ -24,18 +24,18 @@ public class EventType {
     }
 
     public int getEventTypeID() {
-        return EventTypeID;
+        return eventTypeID;
     }
 
     public void setEventTypeID(int eventTypeID) {
-        EventTypeID = eventTypeID;
+        this.eventTypeID = eventTypeID;
     }
 
     public String getEventTypeName() {
-        return EventTypeName;
+        return eventTypeName;
     }
 
     public void setEventTypeName(String eventTypeName) {
-        EventTypeName = eventTypeName;
+        this.eventTypeName = eventTypeName;
     }
 }

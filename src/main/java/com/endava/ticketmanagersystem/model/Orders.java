@@ -1,6 +1,7 @@
 package com.endava.ticketmanagersystem.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -9,35 +10,43 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "Orders", schema = "dbo")
+@Builder
 public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int OrderID;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CustomerID", referencedColumnName = "CustomerID")
-    private Customer Customer;
+    private int orderID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TicketCategoryID",referencedColumnName = "TicketCategoryID")
-    private TicketCategory TicketCategory;
+    @JoinColumn(name = "customerID", referencedColumnName = "customerID")
+    private Customer customer;
 
-    @Column(name = "OrderedAt")
-    private LocalDateTime OrderedAt;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ticketCategoryID",referencedColumnName = "ticketCategoryID")
+    private TicketCategory ticketCategory;
 
-    @Column(name = "NumberOfTickets")
-    private int NumberOfTickets;
+    @Column(name = "orderedAt")
+    private LocalDateTime orderedAt;
+
+    @Column(name = "numberOfTickets")
+    private int numberOfTickets;
 
     @Column(name = "totalPrice")
     private BigDecimal totalPrice;
 
-    public Orders(int orderID, Customer customerID, TicketCategory ticketCategoryID, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice) {
-        OrderID = orderID;
-        this.Customer = Customer;
-        this.TicketCategory = TicketCategory;
-        OrderedAt = orderedAt;
-        NumberOfTickets = numberOfTickets;
+    public Orders(int orderID, Customer customer, TicketCategory ticketCategory, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice) {
+        this.orderID = orderID;
+        this.customer = customer;
+        this.ticketCategory = ticketCategory;
+        this.orderedAt = orderedAt;
+        this.numberOfTickets = numberOfTickets;
+        this.totalPrice = totalPrice;
+    }
+
+    public Orders(Customer customer, TicketCategory ticketCategory, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice) {
+        this.customer = customer;
+        this.ticketCategory = ticketCategory;
+        this.orderedAt = orderedAt;
+        this.numberOfTickets = numberOfTickets;
         this.totalPrice = totalPrice;
     }
 
@@ -46,43 +55,43 @@ public class Orders {
     }
 
     public int getOrderID() {
-        return OrderID;
+        return orderID;
     }
 
     public void setOrderID(int orderID) {
-        OrderID = orderID;
+        this.orderID = orderID;
     }
 
-    public Customer getCustomerID() {
-        return Customer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerID(Customer customerID) {
-        this.Customer = customerID;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public TicketCategory getTicketCategoryID() {
-        return TicketCategory;
+    public TicketCategory getTicketCategory() {
+        return ticketCategory;
     }
 
-    public void setTicketCategoryID(TicketCategory ticketCategoryID) {
-        this.TicketCategory = ticketCategoryID;
+    public void setTicketCategory(TicketCategory ticketCategory) {
+        this.ticketCategory = ticketCategory;
     }
 
     public LocalDateTime getOrderedAt() {
-        return OrderedAt;
+        return orderedAt;
     }
 
     public void setOrderedAt(LocalDateTime orderedAt) {
-        OrderedAt = orderedAt;
+        this.orderedAt = orderedAt;
     }
 
     public int getNumberOfTickets() {
-        return NumberOfTickets;
+        return numberOfTickets;
     }
 
     public void setNumberOfTickets(int numberOfTickets) {
-        NumberOfTickets = numberOfTickets;
+        this.numberOfTickets = numberOfTickets;
     }
 
     public BigDecimal getTotalPrice() {
