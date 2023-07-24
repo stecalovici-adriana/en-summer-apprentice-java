@@ -27,10 +27,6 @@ public class OrdersServiceImplementation implements OrdersService {
 
     @Autowired
     private CustomerRepository customerRepository;
-  /*  @Override
-    public OrdersDTO findByNumberOfTickets(int numberOfTickets) {
-        return OrdersMapper.converter(orderRepository.findByNumberOfTickets(numberOfTickets));
-    }*/
 
     @Override
     public OrdersDTO findByNumberOfTickets(int numberOfTickets) {
