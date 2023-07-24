@@ -18,7 +18,7 @@ public class OrdersController {
         this.ordersService = ordersService;
     }
 
-    @GetMapping("/findd/{numberOfTickets}")
+    @GetMapping("/findOrders/{numberOfTickets}")
     public OrdersDTO findByNumberOfTickets(@PathVariable int numberOfTickets){
         return ordersService.findByNumberOfTickets(numberOfTickets);
     }

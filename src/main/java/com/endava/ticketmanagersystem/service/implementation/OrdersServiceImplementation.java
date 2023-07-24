@@ -27,9 +27,18 @@ public class OrdersServiceImplementation implements OrdersService {
 
     @Autowired
     private CustomerRepository customerRepository;
-    @Override
+  /*  @Override
     public OrdersDTO findByNumberOfTickets(int numberOfTickets) {
         return OrdersMapper.converter(orderRepository.findByNumberOfTickets(numberOfTickets));
+    }*/
+
+    @Override
+    public OrdersDTO findByNumberOfTickets(int numberOfTickets) {
+        List<Orders> orders = orderRepository.findByNumberOfTickets(numberOfTickets);
+        if (orders.isEmpty()) {
+            return null;
+        }
+        return OrdersMapper.converter(orders.get(0));
     }
 
     @Override
