@@ -10,4 +10,5 @@ public record OrderResponseDTO(
         int numberOfTickets,
         BigDecimal totalPrice
 ) {
+
 }

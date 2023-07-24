@@ -7,10 +7,8 @@ import com.endava.ticketmanagersystem.repository.OrdersRepository;
 import com.endava.ticketmanagersystem.repository.TicketCategoryRepository;
 import com.endava.ticketmanagersystem.service.DTO.NewOrderDTO;
 import com.endava.ticketmanagersystem.service.DTO.OrdersDTO;
-import com.endava.ticketmanagersystem.service.Mapper.OrderResponseDTOMapper;
 import com.endava.ticketmanagersystem.service.Mapper.OrdersMapper;
 import com.endava.ticketmanagersystem.service.OrdersService;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +37,7 @@ public class OrdersServiceImplementation implements OrdersService {
         return orderRepository.findAll().stream().map(OrdersMapper::converter).collect(Collectors.toList());
     }
 
+
     @Override
     public OrdersDTO create(NewOrderDTO newOrderDTO) {
         TicketCategory ticketCategory = ticketCategoryRepository.findById(newOrderDTO.getTicketCategoryId()).get();
@@ -62,6 +61,6 @@ public class OrdersServiceImplementation implements OrdersService {
                 .build();
 
         orderRepository.save(order);
-        return OrderResponseDTOMapper.apply(order);
+        return OrdersMapper.converter(order);
     }
 }

@@ -1,6 +1,7 @@
 package com.endava.ticketmanagersystem.controller;
 
 import com.endava.ticketmanagersystem.service.DTO.NewOrderDTO;
+import com.endava.ticketmanagersystem.service.DTO.OrderResponseDTO;
 import com.endava.ticketmanagersystem.service.DTO.OrdersDTO;
 import com.endava.ticketmanagersystem.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,17 @@ public class OrdersController {
         this.ordersService = ordersService;
     }
 
-    @GetMapping("/find_order/{numberOfTickets}")
+    @GetMapping("/findd/{numberOfTickets}")
     public OrdersDTO findByNumberOfTickets(@PathVariable int numberOfTickets){
         return ordersService.findByNumberOfTickets(numberOfTickets);
     }
 
-    @GetMapping("/find_orders")
+    @GetMapping("/orders")
     public List<OrdersDTO> findAll(){
-        return ordersService.findAll();}
+        return ordersService.findAll();
+    }
 
-    @PostMapping("/create_order")
+    @PostMapping("/createOrder")
     public ResponseEntity<OrdersDTO> create(@RequestBody NewOrderDTO newOrderDTO){
         OrdersDTO savedOrderDto = ordersService.create(newOrderDTO);
         return ResponseEntity.ok(savedOrderDto);

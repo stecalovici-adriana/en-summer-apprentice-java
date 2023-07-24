@@ -17,12 +17,12 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/find_event/{eventName}")
+    @GetMapping("/find/{eventName}")
     public EventDTO findByEventName(@PathVariable String eventName) {
         return eventService.findByEventName(eventName);
     }
 
-    @GetMapping("/find_events")
+    @GetMapping("/all")
     public List<EventDTO> findAll() {
         return eventService.findAll();
     }

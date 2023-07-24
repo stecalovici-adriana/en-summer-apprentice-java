@@ -10,6 +10,8 @@ import java.util.List;
 @Component
 public interface OrdersService {
     public OrdersDTO findByNumberOfTickets(int numberOfTickets);
+
     public List<OrdersDTO> findAll();
     public  OrdersDTO create(NewOrderDTO ordersDto);
+
 }

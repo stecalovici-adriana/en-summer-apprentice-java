@@ -16,11 +16,11 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "customerID", referencedColumnName = "customerID")
     private Customer customer;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "ticketCategoryID",referencedColumnName = "ticketCategoryID")
     private TicketCategory ticketCategory;
 

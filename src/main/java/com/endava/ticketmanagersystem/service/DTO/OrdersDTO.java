@@ -8,29 +8,30 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@JsonSerialize
 public class OrdersDTO {
     public OrdersDTO(){};
-    private int orderID;
+    private int eventID;
     private LocalDateTime orderedAt;
     private int numberOfTickets;
     private BigDecimal totalPrice;
+    private String customerName;
+    private int ticketCategoryID;
 
-    public OrdersDTO(int orderID, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice, Customer customer, TicketCategory ticketCategory) {
-        this.orderID = orderID;
+    public OrdersDTO(int eventID, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice, String customerName, int ticketCategoryID) {
+        this.eventID = eventID;
         this.orderedAt = orderedAt;
         this.numberOfTickets = numberOfTickets;
         this.totalPrice = totalPrice;
-        this.customer = customer;
-        this.ticketCategory = ticketCategory;
+        this.customerName = customerName;
+        this.ticketCategoryID = ticketCategoryID;
     }
 
-    public int getOrderID() {
-        return orderID;
+    public int getEventID() {
+        return eventID;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
     public LocalDateTime getOrderedAt() {
@@ -57,22 +58,19 @@ public class OrdersDTO {
         this.totalPrice = totalPrice;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public TicketCategory getTicketCategory() {
-        return ticketCategory;
+    public int getTicketCategoryID() {
+        return ticketCategoryID;
     }
 
-    public void setTicketCategory(TicketCategory ticketCategory) {
-        this.ticketCategory = ticketCategory;
+    public void setTicketCategoryID(int ticketCategoryID) {
+        this.ticketCategoryID = ticketCategoryID;
     }
-
-    private Customer customer;
-    private TicketCategory ticketCategory;
 }
