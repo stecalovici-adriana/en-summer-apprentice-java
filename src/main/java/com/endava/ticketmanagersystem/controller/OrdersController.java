@@ -1,7 +1,6 @@
 package com.endava.ticketmanagersystem.controller;
 
 import com.endava.ticketmanagersystem.service.DTO.NewOrderDTO;
-import com.endava.ticketmanagersystem.service.DTO.OrderResponseDTO;
 import com.endava.ticketmanagersystem.service.DTO.OrdersDTO;
 import com.endava.ticketmanagersystem.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;

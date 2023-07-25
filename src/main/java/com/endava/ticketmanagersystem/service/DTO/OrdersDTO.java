@@ -1,10 +1,5 @@
 package com.endava.ticketmanagersystem.service.DTO;
 
-
-import com.endava.ticketmanagersystem.model.Customer;
-import com.endava.ticketmanagersystem.model.TicketCategory;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 

@@ -2,8 +2,6 @@ package com.endava.ticketmanagersystem.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "EventType", schema = "dbo")
 public class EventType {
