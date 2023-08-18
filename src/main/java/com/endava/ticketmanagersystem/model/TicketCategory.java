@@ -34,11 +34,11 @@ public class TicketCategory {
         this.ticketCategoryID = ticketCategoryID;
     }
 
-    public com.endava.ticketmanagersystem.model.Event getEvent() {
+    public Event getEvent() {
         return Event;
     }
 
-    public void setEvent(com.endava.ticketmanagersystem.model.Event event) {
+    public void setEvent(Event event) {
         Event = event;
     }
 
@@ -70,7 +70,7 @@ public class TicketCategory {
 
     }
 
-    public TicketCategory(int ticketCategoryID, com.endava.ticketmanagersystem.model.Event event, List<Orders> orderList, String description, BigDecimal price) {
+    public TicketCategory(int ticketCategoryID, Event event, List<Orders> orderList, String description, BigDecimal price) {
         this.ticketCategoryID = ticketCategoryID;
         Event = event;
         this.orderList = orderList;

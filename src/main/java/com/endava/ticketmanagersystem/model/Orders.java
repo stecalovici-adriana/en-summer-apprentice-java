@@ -42,18 +42,9 @@ public class Orders {
         this.totalPrice = totalPrice;
     }
 
-    public Orders(Customer customer, TicketCategory ticketCategory, LocalDateTime orderedAt, int numberOfTickets, BigDecimal totalPrice) {
-        this.customer = customer;
-        this.ticketCategory = ticketCategory;
-        this.orderedAt = orderedAt;
-        this.numberOfTickets = numberOfTickets;
-        this.totalPrice = totalPrice;
-    }
-
     public Orders(){
 
     }
-
     public int getOrderID() {
         return orderID;
     }

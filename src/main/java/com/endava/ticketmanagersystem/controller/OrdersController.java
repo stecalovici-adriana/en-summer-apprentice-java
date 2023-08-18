@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173/")
 @RestController
 public class OrdersController {
     private OrdersService ordersService;
@@ -28,6 +29,7 @@ public class OrdersController {
     }
 
     @PostMapping("/createOrder")
+
     public ResponseEntity<OrdersDTO> create(@RequestBody NewOrderDTO newOrderDTO){
         OrdersDTO savedOrderDto = ordersService.create(newOrderDTO);
         return ResponseEntity.ok(savedOrderDto);
